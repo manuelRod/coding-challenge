@@ -72,17 +72,17 @@ class Block {
 			<ul>
 				<?php foreach ( $this->get_post_type_counter() as $post_label => $post_count ) : ?>
 					<li>
-						<?php echo "There are $post_count $post_label."; ?>
+						<?php echo esc_html( "There are $post_count $post_label." ); ?>
 					</li>
 				<?php endforeach; ?>
 			</ul>
 			<p>
-				<?php echo "The current post ID is $post_id."; ?>
+				<?php echo esc_html( "The current post ID is $post_id." ); ?>
 			</p>
 
 			<?php
 			/**
-			 * For simplicity, and lcking context of where this would be used, i will limit the query to 30 results.
+			 * For simplicity, and lacking context of where this would be used, i will limit the query to 30 results.
 			 * Understanding that they will be enough to get at least 5 matches.
 			 * In a real world scenario, this strategy should be revised and probably have a fallback in case not enough
 			 * results are retrieved.
@@ -108,7 +108,7 @@ class Block {
 				<h2>Any 5 posts with the tag of foo and the category of baz</h2>
 				<ul>
 					<?php foreach ( $foo_posts as $post_id ) : ?>
-						<li> <?php echo get_the_title( $post_id ); ?></li>
+						<li><?php echo esc_html( get_the_title( $post_id ) ); ?></li>
 					<?php endforeach; ?>
 				</ul>
 			<?php endif; ?>
